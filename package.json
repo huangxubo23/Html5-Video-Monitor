@@ -1,0 +1,29 @@
+{
+  "name": "html5-video-monitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huangxubo23/Html5-Video-Monitor.git"
+  },
+  "keywords": [
+    "html5",
+    "video",
+    "canvas",
+    "koa"
+  ],
+  "author": "huangxubo23 <732150595@qq.com> (https://gist.github.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huangxubo23/Html5-Video-Monitor/issues"
+  },
+  "homepage": "https://github.com/huangxubo23/Html5-Video-Monitor#readme",
+  "dependencies": {
+    "koa": "^1.2.4",
+    "path": "^0.12.7"
+  }
+}
