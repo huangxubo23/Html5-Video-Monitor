@@ -23,8 +23,11 @@
   },
   "homepage": "https://github.com/huangxubo23/Html5-Video-Monitor#readme",
   "dependencies": {
+    "co-views": "^2.1.0",
     "koa": "^1.2.4",
     "koa-logger": "^1.3.0",
-    "path": "^0.12.7"
+    "koa-router": "^5.4.0",
+    "path": "^0.12.7",
+    "swig": "^1.4.2"
   }
 }
