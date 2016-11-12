@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Monitor{% endblock %}
+
+{% block content %}
+  <h3>Video Monitor</h3>
+  <video width="640" height="480" autoplay></video>
+  <canvas width="640" height="480"></canvas>
+  <canvas width="640" height="480"></canvas>
+
+  <script type="text/javascript">
+    console.log('Monitor page');
+  </script>
+{% endblock %}

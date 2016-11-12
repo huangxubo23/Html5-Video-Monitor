@@ -31,10 +31,15 @@ app.use(function* (next) {
 });
 
 router.get('/', home);
+router.get('/monitor', monitor);
 router.get('/alarm', alarm)
 
 function* home() {
     this.body = 'Hello World!';
+}
+
+function *monitor(){
+    this.body = yield render('monitor');
 }
 
 function* alarm() {
