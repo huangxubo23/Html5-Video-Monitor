@@ -6,7 +6,11 @@ const koa = require('koa');
 const path = require('path');
 const logger = require('koa-logger');
 const router = require('koa-router')();
+const serve = require('koa-static');
+
 let app = module.exports = koa();
+// serve files in public folder (css, js, audio, etc)
+app.use(serve(__dirname + '/src'));
 
 const config = require('./config');
 const render = require('./js/render');
