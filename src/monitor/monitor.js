@@ -82,20 +82,25 @@ function calcDiff() {
 
 //播放音频
 function fireAlarm() {
-    alert('alert');
     audio.play();
 }
 
 //定时捕获
-function timer(delta) {
+function timer(delay) {
     setTimeout(function () {
         captureAndSaveFrame();
-        renderDiff();
-        setTimeout(function () {
-            console.log(calcDiff());
-        }, 10);
-        timer(delta);
-    }, delta || 500);
+        if(preFrame && curFrame){
+            renderDiff();
+            var diff = calcDiff();
+            console.log(diff);
+            if(diff > 0.05){
+                //播放音频告警
+                fireAlarm();
+            }
+        }
+        timer(delay);
+    }, delay || 500);
 }
 
-timer();
+//设定打开页面几秒后，开启视频监控报警
+setTimeout(timer, 1000 * 1);

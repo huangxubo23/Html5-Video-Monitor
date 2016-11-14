@@ -42,7 +42,7 @@ function* home() {
     this.body = 'Hello World!';
 }
 
-function *monitor(){
+function* monitor() {
     this.body = yield render('monitor');
 }
 
