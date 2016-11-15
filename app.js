@@ -6,9 +6,15 @@ const koa = require('koa');
 const path = require('path');
 const logger = require('koa-logger');
 const router = require('koa-router')();
+const koaBody = require('koa-body')({
+    jsonLimit: '5mb',
+    formLimit: '5mb',
+    textLimit: '5mb'
+});
 const serve = require('koa-static');
 
 let app = module.exports = koa();
+
 // serve files in public folder (css, js, audio, etc)
 app.use(serve(__dirname + '/src'));
 
@@ -36,7 +42,13 @@ app.use(function* (next) {
 
 router.get('/', home);
 router.get('/monitor', monitor);
-router.get('/alarm', alarm)
+router.get('/alarm', alarm);
+router.post('/monitor', koaBody, function* (next) {
+    this.status = 200;
+    this.body = this.request.body;
+    console.log(new Date + ': save monitor alarm.');
+    //yield (next);
+});
 
 function* home() {
     this.body = 'Hello World!';
@@ -55,8 +67,8 @@ function* alarm() {
 //     this.body = 'Hello World!';
 // });
 
-app.use(router.routes())
-    .use(router.allowedMethods());
+app.use(router.routes());
+    //.use(router.allowedMethods());
 
 if (!module.parent) {
     app.listen(config.port);
